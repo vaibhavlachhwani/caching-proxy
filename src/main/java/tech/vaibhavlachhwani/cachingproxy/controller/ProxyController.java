@@ -34,6 +34,12 @@ public class ProxyController {
         }
 
         String origin = configService.getOriginUrl();
+
+        if (origin == null) {
+            logger.info("No origin set.");
+            return new ResponseEntity<>("No origin set", HttpStatus.NOT_FOUND);
+        }
+
         String path = request.getRequestURI().replaceFirst("/proxy", "");
         String query = request.getQueryString();
 
