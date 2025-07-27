@@ -25,4 +25,8 @@ public class CacheService {
     public void clearCache() {
         cache.clear();
     }
+
+    public int getCacheSize() {
+        return cache.size();
+    }
 }
