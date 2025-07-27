@@ -18,11 +18,23 @@ public class CacheController {
         this.cacheService = cacheService;
     }
 
+    @GetMapping("/origin")
+    public ResponseEntity<?> getOrigin() {
+        String origin = configService.getOriginUrl();
+
+        if (origin != null) {
+            return ResponseEntity.ok("Origin : " + origin);
+        }
+
+        return ResponseEntity.notFound()
+                .build();
+    }
+
     @PostMapping("/origin")
     public ResponseEntity<?> setOrigin(@RequestBody Map<String, String> body) {
         String originUrl = body.get("origin");
-
         configService.setOriginUrl(originUrl);
+
         return ResponseEntity.ok("Origin set to : " + originUrl);
     }
 
@@ -38,5 +50,10 @@ public class CacheController {
         int size = cacheService.getCacheSize();
 
         return ResponseEntity.ok("Cache size : " + size);
+    }
+
+    @GetMapping("")
+    public ResponseEntity<?> getCacheMap() {
+        return ResponseEntity.ok(cacheService.getCache());
     }
 }
