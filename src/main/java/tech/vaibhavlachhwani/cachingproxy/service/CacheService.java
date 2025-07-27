@@ -30,4 +30,8 @@ public class CacheService {
     public int getCacheSize() {
         return cache.size();
     }
+
+    public ConcurrentHashMap<String, CachedRequest> getCache() {
+        return cache;
+    }
 }
