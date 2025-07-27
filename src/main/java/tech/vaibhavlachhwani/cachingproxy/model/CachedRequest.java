@@ -1,13 +1,15 @@
 package tech.vaibhavlachhwani.cachingproxy.model;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 
 public class CachedRequest {
     private HttpHeaders httpHeaders;
     private String body;
-    private int statusCode;
+    private HttpStatusCode statusCode;
 
-    public CachedRequest(HttpHeaders httpHeaders, String body, int statusCode) {
+    public CachedRequest(HttpHeaders httpHeaders, String body, HttpStatusCode statusCode) {
         this.httpHeaders = httpHeaders;
         this.body = body;
         this.statusCode = statusCode;
@@ -26,7 +28,7 @@ public class CachedRequest {
         return body;
     }
 
-    public int getStatusCode() {
+    public HttpStatusCode getStatusCode() {
         return statusCode;
     }
 }
