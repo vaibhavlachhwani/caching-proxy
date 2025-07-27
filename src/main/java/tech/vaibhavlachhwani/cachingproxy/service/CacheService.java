@@ -21,4 +21,8 @@ public class CacheService {
                 response.getStatusCode()
         ));
     }
+
+    public void clearCache() {
+        cache.clear();
+    }
 }
