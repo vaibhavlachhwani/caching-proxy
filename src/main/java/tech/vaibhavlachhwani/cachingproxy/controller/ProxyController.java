@@ -46,8 +46,11 @@ public class ProxyController {
         CachedRequest cachedRequest = cacheService.get(fullUrl);
 
         if (cachedRequest != null) {
+            logger.debug("Cache HIT : {}", fullUrl);
             return CacheUtil.toResponseEntity(cachedRequest, CacheStatus.HIT);
         }
+
+        logger.info("Cache MISS : {}", fullUrl);
 
         RestClient restClient = RestClient.create();
         ResponseEntity<byte[]> result = restClient.get()
