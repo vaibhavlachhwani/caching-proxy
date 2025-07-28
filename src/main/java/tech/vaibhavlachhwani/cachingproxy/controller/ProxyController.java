@@ -30,7 +30,7 @@ public class ProxyController {
     @RequestMapping("/**")
     public ResponseEntity<?> proxy(HttpServletRequest request) {
         if (!request.getMethod().equalsIgnoreCase("GET")) {
-            return new ResponseEntity<>(HttpStatus.METHOD_NOT_ALLOWED);
+            return new ResponseEntity<>("This cache server only entertains GET requests", HttpStatus.METHOD_NOT_ALLOWED);
         }
 
         String origin = configService.getOriginUrl();
