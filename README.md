@@ -42,7 +42,7 @@ A high-performance, lightweight, and scalable caching proxy server built with Sp
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-username/caching-proxy.git
+    git clone https://github.com/vaibhavlachhwani/caching-proxy.git
     ```
 2.  Navigate to the project directory:
     ```bash
